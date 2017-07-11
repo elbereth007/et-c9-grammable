@@ -11,5 +11,15 @@
 // about supported directives.
 //
 //= require rails-ujs
+
+// next 2 lines added 11 jul 17 for adding bootstrap (lesson/challenge 6)
+//= require jquery
+//= require jquery_ujs
+
 //= require turbolinks
+
+// next 2 lines added 11 jul 17 for adding bootstrap (lesson/challenge 6)
+//= require tether
+//= require bootstrap-sprockets
+
 //= require_tree .
