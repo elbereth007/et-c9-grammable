@@ -3,7 +3,22 @@
 require 'rails_helper'
 
 RSpec.describe GramsController, type: :controller do
+  
+# added 11 jul 17 for gram detail page (lesson 12)
+  describe "grams#show action" do
+    it "should successfully show the page if the gram is found" do
+      gram = FactoryGirl.create(:gram)
+      get :show, params: { id: gram.id }
+      expect(response).to have_http_status(:success)
+    end
 
+    it "should return a 404 error if the gram is not found" do
+      get :show, params: { id: 'TACOCAT' }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+# added 10 jul 17 for writing first test
   describe "grams#index action" do
     it "should successfully show the page" do
       get :index

@@ -13,6 +13,15 @@ class GramsController < ApplicationController
   def index
   end
   
+# show method added 11 jul 17 for gram detail page (lesson 12)
+  def show
+#    @gram = Gram.find(params[:id])
+    @gram = Gram.find_by_id(params[:id])
+    if @gram.blank?
+      render plain: 'Not Found :(', status: :not_found
+    end
+  end
+  
 # create method added 11 jul 17 for adding grams to db, validating grams (lessons 7, 9)
   def create
     
