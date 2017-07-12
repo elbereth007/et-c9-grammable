@@ -56,6 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # added 10 jul 17 for rspec test environment (lesson 4)
 group :development, :test do
   gem 'rspec-rails', '~> 3.6'
+  gem "factory_girl_rails", "~> 4.0"    # added 11 jul 17 for lesson 11
 end
 
 # added 11 jul 17 for adding bootstrap (lesson/challenge 6)
