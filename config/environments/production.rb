@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # next line added for adding devise authentication (lesson/challenge 8)
+  config.action_mailer.default_url_options = { host: 'grammable-victor-christensen.herokuapp.com' }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

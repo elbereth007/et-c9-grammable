@@ -68,3 +68,6 @@ source 'https://rails-assets.org' do
 end
 
 gem 'simple_form'
+
+# added 11 jul 17 for adding authentication (lesson/challenge 8)
+gem 'devise'
