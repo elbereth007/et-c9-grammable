@@ -3,4 +3,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "grams#index"
+
+# next line added 11 jul 17 for adding grams in db (lesson 7)
+  resources :grams, only: [:new, :create]
+  
 end

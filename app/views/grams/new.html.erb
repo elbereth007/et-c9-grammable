@@ -1,0 +1,8 @@
+<!-- firehose track 5, lesson 7 - file created 11 jul 17 for adding grams to db -->
+
+<h1>New Gram</h1>
+
+<%= simple_form_for @gram do |f| %>
+  <%= f.input :message %>
+  <%= f.submit "Post!" %>
+<% end %>
