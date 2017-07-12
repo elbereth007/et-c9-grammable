@@ -1,21 +1,32 @@
 # firehose track 5, lesson 5 - file created 10 jul 17 for writing first test
 
 class GramsController < ApplicationController
-# next line added 11 jul 17 for connecting a gram with a user (lesson 10)
-  before_action :authenticate_user!, only: [:new, :create]
+# next line added 11 jul 17/modified 12 jul 17 for connecting a gram with a user, securing edit/update/destroy (lessons 10, 15)
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   
-# next line added 11 jul 17 for destroying grams (lesson 14)
+# destroy method added 11 jul 17 for destroying grams (lesson 14)
   def destroy
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
+# next 3 lines added/modified 12 jul 17 for securing edit/update/destroy (lesson 15)
+#    if @gram.user != current_user
+#      return render plain: 'Forbidden :(', status: :forbidden
+    return render_not_found(:forbidden) if @gram.user != current_user
+#    end
+  
     @gram.destroy
     redirect_to root_path
   end
   
-# next line added 11 jul 17 for edit/update grams (lesson 13)
+# update method added 11 jul 17 for edit/update grams (lesson 13)
   def update
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
+# next 3 lines added/modified 12 jul 17 for securing edit/update/destroy (lesson 15)
+#    if @gram.user != current_user
+#      return render plain: 'Forbidden :(', status: :forbidden
+    return render_not_found(:forbidden) if @gram.user != current_user
+#    end
     
     @gram.update_attributes(gram_params)
     
@@ -42,10 +53,16 @@ class GramsController < ApplicationController
     return render_not_found if @gram.blank?
   end
   
-# show method added 11 jul 17 for edit/update grams (lesson 13)
+# edit method added 11 jul 17 for edit/update grams (lesson 13)
   def edit
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
+# next 3 lines added/modified 12 jul 17 for securing edit/update/destroy (lesson 15)
+#    if @gram.user != current_user
+#      render plain: 'Forbidden :(', status: :forbidden
+    return render_not_found(:forbidden) if @gram.user != current_user
+#    end
+    
   end
   
 # create method added 11 jul 17 for adding grams to db, validating grams (lessons 7, 9)
@@ -70,8 +87,14 @@ class GramsController < ApplicationController
   end
   
 # render_not_found method added 11 jul 17 for edit/update grams (lesson 13)
-  def render_not_found
-    render plain: 'Not Found :(', status: :not_found
+
+#  def render_not_found
+#    render plain: 'Not Found :(', status: :not_found
+#  end
+
+# next 3 lines modified 12 jul 17 for securing edit/update/destroy (lesson 15)
+  def render_not_found(status=:not_found)
+    render plain: "#{status.to_s.titleize} :(", status: status
   end
   
 end
