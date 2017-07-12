@@ -4,6 +4,14 @@ class GramsController < ApplicationController
 # next line added 11 jul 17 for connecting a gram with a user (lesson 10)
   before_action :authenticate_user!, only: [:new, :create]
   
+# next line added 11 jul 17 for destroying grams (lesson 14)
+  def destroy
+    @gram = Gram.find_by_id(params[:id])
+    return render_not_found if @gram.blank?
+    @gram.destroy
+    redirect_to root_path
+  end
+  
 # next line added 11 jul 17 for edit/update grams (lesson 13)
   def update
     @gram = Gram.find_by_id(params[:id])

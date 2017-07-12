@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "grams#index"
 
-# next line added 11 jul 17 for adding grams in db, gram detail page, edit/update grams (lessons 7, 12, 13)
-  resources :grams, only: [:new, :create, :show, :edit, :update]
+# next line added 11 jul 17 for adding grams in db, gram detail page, edit/update grams, destroy grams (lessons 7, 12-14),
+# then deleted in favor of the "resources" way of using the same actions
+#  resources :grams, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :grams
   
 end
