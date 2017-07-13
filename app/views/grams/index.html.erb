@@ -1,3 +1,11 @@
 <!-- firehose track 5, lesson 5 - file created for writing first test -->
 
 <h1>Grams!</h1>
+
+<!-- code block added 12 jul 17 for uploading images (lesson/challenge 16) -->
+<% @grams.each do |gram| %>
+<div>
+  <%= gram.message %>
+  <%= image_tag gram.picture %>
+</div>
+<% end %>

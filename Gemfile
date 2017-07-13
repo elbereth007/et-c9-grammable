@@ -72,3 +72,8 @@ gem 'simple_form'
 
 # added 11 jul 17 for adding authentication (lesson/challenge 8)
 gem 'devise'
+
+# added 12 jul 17 for uploading images (lesson/challenge 16)
+gem 'carrierwave'
+gem 'figaro'
+gem 'fog-aws'

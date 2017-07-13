@@ -5,4 +5,7 @@
 <%= simple_form_for @gram do |f| %>
   <%= f.input :message %>
   <%= f.submit "Post!" %>
+  
+<!-- next line added 12 jul 17 for uploading images (lesson/challenge 16) -->
+  <%= f.input :picture %>
 <% end %>

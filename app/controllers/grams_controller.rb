@@ -44,6 +44,7 @@ class GramsController < ApplicationController
   
 # index method added 11 jul 17 for adding grams to db (lesson 7)
   def index
+    @grams = Gram.all     # added 12 jul 17 for uploading images (lesson/challenge 16)
   end
   
 # show method added 11 jul 17 for gram detail page, edit/update grams (lessons 12, 13)
@@ -83,7 +84,7 @@ class GramsController < ApplicationController
   private
 
   def gram_params
-    params.require(:gram).permit(:message)
+    params.require(:gram).permit(:message, :picture)  # :picture added 12 jul 17 for uploading images (lesson/challenge 16)
   end
   
 # render_not_found method added 11 jul 17 for edit/update grams (lesson 13)
