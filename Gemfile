@@ -68,7 +68,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
-gem 'simple_form'
+gem 'simple_form', '>= 3.5.0'
 
 # added 11 jul 17 for adding authentication (lesson/challenge 8)
 gem 'devise'
