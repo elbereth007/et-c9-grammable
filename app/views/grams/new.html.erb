@@ -1,11 +1,18 @@
 <!-- firehose track 5, lesson 7 - file created 11 jul 17 for adding grams to db -->
 
-<h1>New Gram</h1>
-
-<%= simple_form_for @gram do |f| %>
-  <%= f.input :message %>
-  <%= f.submit "Post!" %>
+<!-- next line added 12 jul 17 for styling (lesson 19) -->
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 card form">
   
+  <h1>New Gram</h1>
+  
+  <%= simple_form_for @gram do |f| %>
+    <%= f.input :message %>
+<!--    <%= f.submit "Post!" %> -->
+    
 <!-- next line added 12 jul 17 for uploading images (lesson/challenge 16) -->
-  <%= f.input :picture %>
-<% end %>
+    <%= f.input :picture %>
+<!-- next line added 12 jul 17 for styling (lesson 19) -->
+    <%= f.submit "Post!", class: 'my-btn' %>
+  <% end %>
+  
+</div>
