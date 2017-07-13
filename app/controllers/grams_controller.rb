@@ -94,8 +94,8 @@ class GramsController < ApplicationController
 #  end
 
 # next 3 lines modified 12 jul 17 for securing edit/update/destroy (lesson 15)
-  def render_not_found(status=:not_found)
-    render plain: "#{status.to_s.titleize} :(", status: status
-  end
+#  def render_not_found(status=:not_found)
+#    render plain: "#{status.to_s.titleize} :(", status: status
+#  end
   
 end

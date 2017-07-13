@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "grams#index"
+  
+  # next 3 lines added 12 jul 17 for comments (lesson 18)
+  resources :grams do
+    resources :comments, only: :create
+  end
 
 # next line added 11 jul 17 for adding grams in db, gram detail page, edit/update grams, destroy grams (lessons 7, 12-14),
 # then deleted in favor of the "resources" way of using the same actions
