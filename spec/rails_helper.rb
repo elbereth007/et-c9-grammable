@@ -30,6 +30,9 @@ RSpec.configure do |config|
   
   # next 2 lines added 11 jul 17 for connecting a gram to a user (lesson 10)
   config.include Devise::Test::ControllerHelpers, type: :controller
+  # next line added 12 jul 17 for image validation (lesson 17)
+  include ActionDispatch::TestProcess
+  
   config.include Devise::Test::ControllerHelpers, type: :view
   
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

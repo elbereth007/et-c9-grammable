@@ -11,6 +11,10 @@ FactoryGirl.define do
   
   factory :gram do
     message "hello"
+    
+    # next line added 12 jul 17 for image validation (lesson 17)
+    picture { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'picture.png'), 'image/png') }
+    
     association :user
   end
   

@@ -199,7 +199,15 @@ RSpec.describe GramsController, type: :controller do
 #      )
       sign_in user
       
-      post :create, params: { gram: { message: 'Hello!' } }
+#      post :create, params: { gram: { message: 'Hello!' } }
+# next 6 lines added 12 jul 17 for image validation (lesson 17)
+      post :create, params: {
+        gram: {
+          message: 'Hello!',
+          picture: fixture_file_upload("/picture.png", 'image/png')
+        }
+      }
+
       expect(response).to redirect_to root_path
       
       gram = Gram.last
